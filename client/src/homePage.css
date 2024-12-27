@@ -1,0 +1,8 @@
+.home{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
