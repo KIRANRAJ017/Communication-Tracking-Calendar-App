@@ -1,6 +1,0 @@
-echo node_modules/ > .gitignore
-echo server/node_modules/ >> .gitignore
-echo client/node_modules/ >> .gitignore
-echo client/build/ >> .gitignore
-echo *.log >> .gitignore
-echo .env >> .gitignore
