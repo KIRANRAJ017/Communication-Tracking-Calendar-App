@@ -13,13 +13,12 @@ const LoginForm = () => {
 
   async function onSubmit(e){
     e.preventDefault();
-    console.log(name, password)
     try{
       const response = await  axios.post('http://localhost:8000/login', {
         name, password
       });
       if(response.data=='User exist'){
-        navigate('/admin');
+        navigate('/user');
       }
     }
     catch(err){

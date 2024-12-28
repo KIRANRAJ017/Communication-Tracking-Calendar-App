@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, Checkbox, Row, Col, Typography, message } from 'antd';
 import axios from "axios"
+import {useNavigate } from 'react-router-dom';
 
 const { Title } = Typography;
 
 const RegisterForm = () => {
     const[name, setname] = useState("");
     const[password, setpassword] = useState("");
-
+    const navigate = useNavigate();
     async function onSubmit(e){
       e.preventDefault();
-      console.log(name, password)
       try{
         const response = await  axios.post('http://localhost:8000/register', {
           name, password
         });
         console.log(response)
+        if(response.data === 'User added'){
+          navigate('/login')
+        }
       }
       catch(err){
         console.log("error in login", err)
