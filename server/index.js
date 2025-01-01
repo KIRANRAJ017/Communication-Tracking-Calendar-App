@@ -9,7 +9,7 @@ const Company = require('./model/companyModel')
 const app = express()
 app.use(bodyparser.json())
 app.use(cors())
-app.use(express.static(path.join(__dirname, 'client/build')));
+
 
 mongoose.connect(process.env.MONGO).then("Connected successfully").catch((err)=>console.log(err))
 
@@ -19,7 +19,7 @@ app.post('/login', async(req, res)=>{
         return res.send("All field required");
     }
     try{
-        const existUser = await userModel.findOne({name})
+        const existUser = await userModel.findOne({name:name})
         console.log(existUser)
         if(existUser.password===password){
             return res.send("User exist")
